@@ -5,7 +5,7 @@ const searchPhone = () => {
     fetch(url)
         .then(res => res.json())
         .then(data =>
-            displayResult(data.data))
+            displayResult(data.data.slice(0, 20)))
     searchfield.value = "";
 }
 
@@ -74,6 +74,12 @@ const displayDetails = details => {
         p.innerText = (`reaseled date : ${details.releaseDate}`);
         div.appendChild(p);
     }
+    else {
+        const p = document.createElement('p');
+        p.classList.add('ps-3');
+        p.innerText = (`reaseled date : No Released Date Here`);
+        div.appendChild(p);
+    }
 
 
     for (const property in details.mainFeatures) {
@@ -89,6 +95,7 @@ const displayDetails = details => {
         p.innerText = (`${property}: ${details.others[property]}`);
         div.appendChild(p);
     }
+
 
     phoneDetails.appendChild(div)
 
