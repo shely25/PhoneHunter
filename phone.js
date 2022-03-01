@@ -17,7 +17,7 @@ const displayResult = phones => {
         const absenceMassege = document.getElementById('search-result')
         //console.log(absenceMassege)
         // absenceMassege.classList.add('text-info');
-        absenceMassege.innerText = `Sorry Your Result Is Not Found`;
+        absenceMassege.innerHTML = `<h3 class="mx-auto text-danger">Sorry Your Result Is Not Found</h3>`;
 
     }
 
@@ -35,7 +35,9 @@ const displayResult = phones => {
             <div class="card-body">
                 <h5 class="card-title">${phone.phone_name}</h5>
                 <h5 class="card-title"> Brand : ${phone.brand}</h5>
-                <button onClick="SeeDetails('${phone.slug}')" class="btn btn-outline-secondary bg-dark text-white" type="button"
+                <button onClick="SeeDetails('${phone.slug}')" class="btn btn-outline-secondary
+                rounded-pill px-4 text-dark" style="background-image: linear-gradient(rgba(300, 81, 13, 0.87),rgba(280, 141, 18, 0.719)
+                )" type="button"
                 id="button-addon2">Detail</button>
             </div>
         </div>`;
