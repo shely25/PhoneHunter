@@ -8,7 +8,7 @@ const searchPhone = () => {
             displayResult(data.data.slice(0, 20)))
     searchfield.value = "";
 }
-
+//display result
 const displayResult = phones => {
     //console.log(phones);
     if (phones.length == 0) {
@@ -36,7 +36,7 @@ const displayResult = phones => {
                 <h5 class="card-title">${phone.phone_name}</h5>
                 <h5 class="card-title"> Brand : ${phone.brand}</h5>
                 <button onClick="SeeDetails('${phone.slug}')" class="btn btn-outline-secondary
-                rounded-pill px-4 text-dark" style="background-image: linear-gradient(rgba(300, 81, 13, 0.87),rgba(280, 141, 18, 0.719)
+                rounded-pill px-4 text-dark" style="background-image: linear-gradient(rgba(400, 65, 13, 0.87),rgba(380, 129, 18, 0.719)
                 )" type="button"
                 id="button-addon2">Detail</button>
             </div>
@@ -50,14 +50,14 @@ const displayResult = phones => {
 
 }
 
-
+//id fetch
 const SeeDetails = PhoneId => {
     const url = `https://openapi.programming-hero.com/api/phone/${PhoneId}`
     fetch(url)
         .then(res => res.json())
         .then(data => displayDetails(data.data))
 }
-
+//See Detail
 const displayDetails = details => {
     console.log(details)
     const phoneDetails = document.getElementById('phone-details');
